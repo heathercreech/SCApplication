@@ -8,6 +8,8 @@ A 2d graphics engine that also acts as an abstraction layer for SDL2
 - Smart loop logic (not tied to framerate)
 
 
+#How-To
+
 ##How to Start an Application
 Starting an `Application` window is an easy process:
 
@@ -27,3 +29,24 @@ if(app.init()){
 ```
 
 So `app.loop` will only run if the setup process in `app.init()` was successful.
+
+
+##How to Use an ApplicationObject
+In SCApplication, `ApplicationObject`s act as entities. They have their own modular rendering and logic objects that handle all the interaction with the application's environment. To create an `ApplicationObject`, do the following:
+
+```C++
+SDL_Rect ao_rect;
+ObjectRenderer ao_renderer(app.getRenderer());
+ObjectLogic ao_logic(&app, &ao_rect);
+ApplicationObject ao_obj(&app, &ao_renderer, &ao_logic);
+```
+
+While the code required for creating an `ApplicationObject` appears large, doing so with pure SDL2 is an even greater task. However, there are plans to replace the above declarations for `ObjectRenderer` and `ObjectLogic` with a `ModuleManager`, which will then be added to the `ApplicationObject` and be responsible for swaping modules when needed.
+
+After an ApplicationObject is constructed, it must be added into the application:
+
+```C++
+app.add(&ao_obj);
+```
+
+At this point, the `ApplicationObject` is now in the application; the logic and rendering are now being executed. 
