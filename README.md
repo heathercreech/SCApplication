@@ -52,5 +52,5 @@ app.add(&ao_obj);
 At this point, the `ApplicationObject` is now in the application; the logic and rendering are now being executed. 
 
 #Future Plans
-- Make creation of `ApplicationObject`s easier (`ModuleManager`?)
-- Improve access of `ApplicationObject`s in the application (Some form of naming system?)
+- Make creation of `ApplicationObject` easier (`ModuleManager`?)
+- Improve access of `ApplicationObject` in the application (Some form of naming system?)
