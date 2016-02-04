@@ -28,7 +28,7 @@ if(app.init()){
 }
 ```
 
-So `app.loop` will only run if the setup process in `app.init()` was successful.
+So `app.loop()` will only run if the setup process in `app.init()` was successful.
 
 
 ##How to Use an ApplicationObject
